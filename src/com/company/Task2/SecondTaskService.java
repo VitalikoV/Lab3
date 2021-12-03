@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class SecondTaskService {
     public static void createUser() throws Exception {
         User user = null;
-        try (Scanner sc = new Scanner(System.in)) {
+        try {
+            Scanner sc = new Scanner(System.in);
             System.out.print("FirstName: ");
             String firstName = sc.nextLine();
             System.out.print("LastName: ");
