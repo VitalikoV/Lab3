@@ -19,11 +19,13 @@ public class Student {
         this.subjectToMark = subjectToMark;
     }
 
-    public int calculateProsperityInPercent() throws Exception {
-        if(subjectToMark.values().size() != subjectList.size()
-        || !subjectList.containsAll(subjectToMark.keySet())
-        || !subjectToMark.keySet().containsAll(subjectList)){
-             throw new Exception("Prosperity can't be calculated cause not all subjects have marks ");
+    public int calculateProsperityInPercent()  {
+        boolean isSizeAreEqual = subjectToMark.values().size() != subjectList.size();
+        boolean isListContainsSubjects = subjectList.containsAll(subjectToMark.keySet());
+        boolean isMapContainsSubjects = subjectToMark.keySet().containsAll(subjectList);
+        if(isSizeAreEqual || !isListContainsSubjects|| !isMapContainsSubjects){
+            System.out.println("Prosperity can't be calculated cause not all subjects have marks");
+             return 0;
         }
         return calculateProsperity(subjectToMark, 0, subjectList.size());
     }
