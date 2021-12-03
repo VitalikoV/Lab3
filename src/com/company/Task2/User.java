@@ -18,6 +18,10 @@ public class User implements AutoCloseable{
         validate();
     }
 
+    public User() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
