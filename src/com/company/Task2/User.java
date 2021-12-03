@@ -2,7 +2,7 @@ package com.company.Task2;
 
 import java.util.Objects;
 
-public class User {
+public class User implements AutoCloseable{
     private String firstName;
     private String lastName;
     private String email;
@@ -80,5 +80,10 @@ public class User {
         if(this.address == null || !Objects.equals(this.address.getCountry(), "Ukraine")){
             throw new IllegalParamsException("The address must be filled and country must be Ukraine", HttpCodes.HTTP_400);
         }
+    }
+
+    @Override
+    public void close() throws Exception {
+        System.exit(1);
     }
 }
